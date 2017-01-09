@@ -1,8 +1,7 @@
 package play.api
 
-import play.api._
 import play.api.inject.Injector
-import play.core.server.{RealServerProcess, ServerConfig, ServerProvider, ServerStartException}
+import play.core.server.{RealServerProcess, ServerConfig}
 
 import scala.util.control.NonFatal
 
@@ -12,16 +11,13 @@ import scala.util.control.NonFatal
   */
 object Playless {
 
-  def startPlayAndGetInjector(args:Seq[String]):Injector = {
+  def startPlayAndGetInjector(args:Seq[String] = Nil):Injector = {
     val process = new RealServerProcess(args)
     import play.core.server.ProdServerStart._
     try {
 
       // Read settings
       val config: ServerConfig = readServerConfigSettings(process)
-
-      // Create a PID file before we do any real work
-      val pidFile = createPidFile(process, config.configuration)
 
       // Start the application
       val application: Application = {
