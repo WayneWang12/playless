@@ -25,4 +25,36 @@ lazy val sample = (project in file("sample"))
       "com.typesafe.play" %% "play-slick" % "2.0.2"
     )
   )
-    
+
+publishTo := {
+  val nexus = "https://oss.sonatype.org/"
+  if (isSnapshot.value) {
+    Some("snapshots" at nexus + "content/repositories/snapshots")
+  }
+  else {
+    Some("releases" at nexus + "service/local/staging/deploy/maven2")
+  }
+}
+
+publishMavenStyle := true
+
+pomExtra :=
+  <url>https://github.com/scweang/playless</url>
+    <licenses>
+      <license>
+        <name>Apache License</name>
+        <url>http://www.apache.org/licenses/</url>
+        <distribution>repo</distribution>
+      </license>
+    </licenses>
+    <scm>
+      <url>git@github.com:scweang/playless.git</url>
+      <connection>scm:git:git@github.com:scweang/playless.git</connection>
+    </scm>
+    <developers>
+      <developer>
+        <id>scwang</id>
+        <name>Wayne Wang</name>
+        <url>http://scweang.me/</url>
+      </developer>
+    </developers>
