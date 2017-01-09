@@ -4,7 +4,7 @@ Playless extract the injector from play framework to make it independent of play
  
 All you have to do is just a piece of code as below, which I take akka http and play slick for an example:
 
-```
+```scala
 object Main extends App with CatJsonSupport {
 
   val injector = Playless.startPlayAndGetInjector(args)
