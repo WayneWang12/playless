@@ -4,7 +4,7 @@ Playless extract the injector from play framework to make it independent of play
  
 To enable playless, you should add it to your library dependencies:
 ```scala
-libraryDependencies += "io.growing" %% "growing-playless" % "1.0"
+libraryDependencies += "io.growing" %% "playless" % "1.0"
 ```
 
 And then, all you have to do is just a piece of code as below, which I take akka http and play slick for an example:
