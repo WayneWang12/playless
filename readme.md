@@ -2,7 +2,7 @@
 
 Playless extract the injector from play framework to make it independent of play's netty server or akka http server, which makes you harness the power of reusing code intended to play framework while you are using a new server backend which can be anything.
  
-To enable playless, you should add it to your library dependencies:
+To enable playless, you should add it to your library dependencies (remember it's not published to any repositories, you should publish it in your local or own nexus or other):
 ```scala
 libraryDependencies += "io.growing" %% "playless" % "1.0"
 ```
